@@ -7,8 +7,8 @@ import Text.Printf (printf)
 
 class (FromJSON a, ToJSON a) => SL a where
 
-   save :: FilePath -> a -> IO ()
-   save path a = B.writeFile path (encode a)
+   save :: a -> FilePath -> IO ()
+   save a path = B.writeFile path (encode a)
 
    load :: FilePath -> IO a
    load path = do
